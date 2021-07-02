@@ -20,8 +20,8 @@ REPO_ROOT                   := $(shell dirname $(realpath $(lastword $(MAKEFILE_
 HACK_DIR                    := $(REPO_ROOT)/hack
 VERSION                     := $(shell cat "$(REPO_ROOT)/VERSION")
 LD_FLAGS                    := "-w -X github.com/gardener/$(EXTENSION_PREFIX)-$(NAME)/pkg/version.Version=$(IMAGE_TAG)"
-LEADER_ELECTION             := false
-IGNORE_OPERATION_ANNOTATION := true
+LEADER_ELECTION             := true
+IGNORE_OPERATION_ANNOTATION := false
 
 #########################################
 # Rules for local development scenarios #
