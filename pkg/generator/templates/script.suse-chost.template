@@ -37,7 +37,7 @@ EOF
 
 ln -s /usr/sbin/containerd /usr/bin/containerd
 ln -s /usr/sbin/containerd-ctr /usr/bin/ctr
-ln -s /usr/sbin/docker-runc /usr/bin/runc
+# ln -s /usr/sbin/docker-runc /usr/bin/runc
 
 mkdir -p /tmp/containerd
 cd /tmp/containerd
@@ -45,6 +45,13 @@ wget -q -O containerd.tar.gz "https://github.com/containerd/containerd/releases/
 tar xzvf containerd.tar.gz
 chmod +x bin/containerd-shim-runc-v*
 mv bin/containerd-shim-runc-v* /usr/bin/
+cd -
+
+mkdir -p /tmp/runc
+cd /tmp/runc
+wget -q -O runc "https://github.com/opencontainers/runc/releases/download/v1.0.0-rc95/runc.amd64"
+chmod +x runc
+mv runc /usr/bin/runc
 cd -
 
 mkdir -p /etc/systemd/system/containerd.service.d
